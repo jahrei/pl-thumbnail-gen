@@ -64,6 +64,9 @@
         input[type="file"]::file-selector-button:hover {
             background-color: #2563EB;
         }
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
         button {
             background: #3B82F6;
             color: #FFFFFF;
@@ -97,8 +100,15 @@
     <form action="/upload" method="post" enctype="multipart/form-data">
         <label for="image">Choose an image:</label>
         <input type="file" name="image" id="image" accept="image/*" required>
-        <label for="weight">Enter weight number:</label>
-        <input type="text" name="weight" id="weight" placeholder="Enter a number (e.g., 300)" required>
+        
+        <label for="weight">Enter weight number or text:</label>
+        <input type="text" name="weight" id="weight" placeholder="Enter a number or text (e.g., 300 or Hello)" required>
+
+        <label>
+            <input type="checkbox" name="add_lb" value="yes">
+            Include "lb" suffix
+        </label>
+
         <button type="submit">Generate Image</button>
     </form>
     <footer>
