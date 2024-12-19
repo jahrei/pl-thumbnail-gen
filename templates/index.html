@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Modifier</title>
+    <title>PL Thumbnail Generator</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* General styles */
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
@@ -41,7 +40,8 @@
             display: block;
         }
         input[type="file"],
-        input[type="text"] {
+        input[type="text"],
+        select {
             margin: 10px 0 20px;
             padding: 10px;
             width: 100%;
@@ -51,21 +51,6 @@
             background-color: #262626;
             color: #E4E4E7;
             box-sizing: border-box;
-        }
-        input[type="file"]::file-selector-button {
-            background-color: #3B82F6;
-            color: #FFFFFF;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        input[type="file"]::file-selector-button:hover {
-            background-color: #2563EB;
-        }
-        input[type="checkbox"] {
-            margin-right: 5px;
         }
         button {
             background: #3B82F6;
@@ -81,22 +66,10 @@
         button:hover {
             background: #2563EB;
         }
-        footer {
-            margin-top: 20px;
-            font-size: 12px;
-            color: #A3A3A3;
-        }
-        footer a {
-            color: #3B82F6;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
-    <h1>Image Modifier</h1>
+    <h1>PL Thumbnail Generator</h1>
     <form action="/upload" method="post" enctype="multipart/form-data">
         <label for="image">Choose an image:</label>
         <input type="file" name="image" id="image" accept="image/*" required>
@@ -104,15 +77,20 @@
         <label for="weight">Enter weight number or text:</label>
         <input type="text" name="weight" id="weight" placeholder="Enter a number or text (e.g., 300 or Hello)" required>
 
-        <label>
-            <input type="checkbox" name="add_lb" value="yes">
-            Include "lb" suffix
-        </label>
+        <label for="color">Choose text color (default is white):</label>
+        <select name="color" id="color">
+            <option value="white">White</option>
+            <option value="gold">Gold</option>
+            <option value="red">Failed Red</option>
+        </select>
+
+        <label for="unit">Choose unit:</label>
+        <select name="unit" id="unit">
+            <option value="lb">lb</option>
+            <option value="kg">kg</option>
+        </select>
 
         <button type="submit">Generate Image</button>
     </form>
-    <footer>
-        Powered by your custom image modifier script. <a href="#">Learn more</a>
-    </footer>
 </body>
 </html>
