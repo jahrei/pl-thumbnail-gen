@@ -57,7 +57,8 @@ def upload_image():
 
     image_file = request.files["image"]
     weight = request.form["weight"]
-    unit = "lb" if "unit" in request.form and request.form["unit"] == "lb" else "kg"
+    unit = request.form["unit"]
+    unit = "" if unit == "none" else unit  # Handle the "no unit" option
     color = "#FFD700" if request.form.get("color") == "gold" else "#f94449" if request.form.get("color") == "red" else "#FFFFFF"
 
     try:
@@ -75,10 +76,11 @@ def upload_image():
         image_io = io.BytesIO()
         image.save(image_io, format="JPEG")
         image_io.seek(0)
-        filename = f"output_{weight}_{unit}.jpg"
+        filename = f"output_{weight}_{unit if unit else 'no_unit'}.jpg"
         return send_file(image_io, mimetype="image/jpeg", as_attachment=True, download_name=filename)
     except Exception as e:
         return f"An error occurred: {str(e)}", 500
+
 
 if __name__ == "__main__":
     app.run(debug=True)
