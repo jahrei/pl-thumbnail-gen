@@ -66,10 +66,18 @@
         button:hover {
             background: #2563EB;
         }
+        
+        .small-text {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #A3A3A3; /* Subtle gray color */
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
-    <h1>PL Thumbnail Generator</h1>
+    <h1>thumbnail generator</h1>
     <form action="/upload" method="post" enctype="multipart/form-data">
         <label for="image">Choose an image:</label>
         <input type="file" name="image" id="image" accept="image/*" required>
@@ -98,5 +106,8 @@
         
         <button type="submit">Generate Image</button>
     </form>
+
+    <p class="small-text">reversal, hold a mirror.</p>
+
 </body>
 </html>
