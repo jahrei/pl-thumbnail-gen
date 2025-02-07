@@ -89,7 +89,7 @@ def upload_image():
             font_path = "OldEnglish.ttf"
             font_size = 320
         else:
-            font_path = "Helvetica-Bold.ttf"
+            font_path = "NimbusSanL-Bol.otf"
             font_size = 320
 
         # Add text to the image
